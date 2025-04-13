@@ -1,5 +1,5 @@
-import { NavLinkItem } from '../ui/NavLinkItem';
-import { Button } from '../ui/Button';
+import { NavLinkItem } from "../ui/NavLinkItem";
+import { Button } from "../ui/Button";
 
 type MobileMenuProps = {
   links: { name: string; href: string }[];
