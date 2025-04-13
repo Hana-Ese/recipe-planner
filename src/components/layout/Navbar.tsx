@@ -21,25 +21,30 @@ export const Navbar = () => {
 		console.log("Download App"); // for Download logic
 	};
 
-	return (
+    return (
+        
 		<nav className='w-full flex items-center justify-between p-4 bg-white shadow-md sticky top-0 z-50'>
-			<Logo />
+            <Logo />
+            
 			<div className='hidden md:flex space-x-6'>
 				{navLinks.map((link) => (
 					<NavLinkItem key={link.name} href={link.href} label={link.name} />
 				))}
-			</div>
+            </div>
+            
 			<div className='hidden md:flex items-center space-x-4'>
 				<Button variant='outline' label='Login' onClick={handleLogin} />
 				<Button variant='solid' label='Download' onClick={handleDownload} />
-			</div>
+            </div>
+            
 			<div className='md:hidden'>
 				<Button
 					label='☰'
 					variant='outline'
 					onClick={() => setMenuOpen(!menuOpen)}
 				/>
-			</div>
+            </div>
+            
 			{menuOpen && (
 				<MobileMenu links={navLinks} closeMenu={() => setMenuOpen(false)} />
 			)}
