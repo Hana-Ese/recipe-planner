@@ -13,6 +13,14 @@ const navLinks = [
 export const Navbar = () => {
 	const [menuOpen, setMenuOpen] = useState(false);
 
+	const handleLogin = () => {
+		console.log("Open Login Modal"); // for Login logic
+	};
+
+	const handleDownload = () => {
+		console.log("Download App"); // for Download logic
+	};
+
 	return (
 		<nav className='w-full flex items-center justify-between p-4 bg-white shadow-md sticky top-0 z-50'>
 			<Logo />
@@ -22,16 +30,8 @@ export const Navbar = () => {
 				))}
 			</div>
 			<div className='hidden md:flex items-center space-x-4'>
-				<Button
-					variant='outline'
-					label='Login'
-					onClick={() => console.log("Open Login")}
-				/>
-				<Button
-					variant='solid'
-					label='Download'
-					onClick={() => console.log("Download")}
-				/>
+				<Button variant='outline' label='Login' onClick={handleLogin} />
+				<Button variant='solid' label='Download' onClick={handleDownload} />
 			</div>
 			<div className='md:hidden'>
 				<Button
