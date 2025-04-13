@@ -5,14 +5,13 @@ import { NavLinkItem } from '../ui/NavLinkItem';
 import { MobileMenu } from './MobileMenu';
 import { Button } from '../ui/Button';
 
-
 const navLinks = [
-  { name: 'Home', href: '/' },
-  { name: 'Recipes', href: '/recipes' },
-  { name: 'Cookware', href: '/cookware' },
-  { name: 'About Us', href: '/about' },
+    { name: 'Home', href: '/' },
+    { name: 'Recipes', href: '/recipes' },
+    { name: 'Cookware', href: '/cookware' },
+    { name: 'About Us', href: '/about-us' }, // Ensure this matches the route
 ];
-
+  
 export const Navbar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
 

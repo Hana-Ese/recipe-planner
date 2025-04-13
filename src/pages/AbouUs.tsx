@@ -1,5 +1,5 @@
-function AboutAs() {
+function AboutUs() {
     return ( <></> );
 }
 
-export default AboutAs;
+export default AboutUs;
