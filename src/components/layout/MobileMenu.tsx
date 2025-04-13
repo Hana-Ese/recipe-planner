@@ -11,7 +11,7 @@ export const MobileMenu = ({ links, closeMenu }: MobileMenuProps) => (
     {links.map((link) => (
       <NavLinkItem key={link.name} href={link.href} label={link.name} onClick={closeMenu} />
     ))}
-    <Button variant="ghost" label="Login" onClick={() => console.log('Open Login')} />
-    <Button variant="primary" label="Download" onClick={() => console.log('Download')} />
+    <Button variant="outline" label="Login" onClick={() => console.log('Open Login')} />
+    <Button variant="solid" label="Download" onClick={() => console.log('Download')} />
   </div>
 );

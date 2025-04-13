@@ -23,12 +23,12 @@ export const Navbar = () => {
             </div>
             <div className="hidden md:flex items-center space-x-4">
                 <Button
-                    variant="ghost"
+                    variant="outline"
                     label="Login"
                     onClick={() => console.log("Open Login")}
                 />
                 <Button
-                    variant="primary"
+                    variant="solid"
                     label="Download"
                     onClick={() => console.log("Download")}
                 />
@@ -36,7 +36,7 @@ export const Navbar = () => {
             <div className="md:hidden">
                 <Button
                     label="☰"
-                    variant="ghost"
+                    variant="outline"
                     onClick={() => setMenuOpen(!menuOpen)}
                 />
             </div>

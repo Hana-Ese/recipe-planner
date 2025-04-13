@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link } from "react-router";
 
 export const Logo = () => (
   <Link to="/" className="text-xl font-bold text-blue-600">
