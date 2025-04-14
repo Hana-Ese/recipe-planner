@@ -1,7 +1,7 @@
 import RecipesPage from "../features/recipes/RecipesPage";
 
 const Recipes = () => {
-  return <RecipesPage />;
+	return <RecipesPage />;
 };
 
 export default Recipes;
