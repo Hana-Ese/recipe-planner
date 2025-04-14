@@ -46,7 +46,6 @@ const RecipesPage = () => {
                         label='Upload Recipe'
                         variant='solid'
                         onClick={() => {}}
-                        className="self-start "
                     />
                 </div>
             </div>
