@@ -1,5 +1,11 @@
+import RecipesPage from "../features/recipes/RecipesPage";
+
 function Recipes() {
-    return ( <></> );
+    return (
+        <>
+         <RecipesPage ></RecipesPage>   
+        </>
+    );
 }
 
 export default Recipes;
