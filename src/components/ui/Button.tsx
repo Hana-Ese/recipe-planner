@@ -4,7 +4,7 @@ type ButtonProps = {
 	variant?: "solid" | "outline";
 };
 
-export const Button = ({ label, onClick, variant = "solid" }: ButtonProps) => {
+const Button = ({ label, onClick, variant = "solid" }: ButtonProps) => {
 	const base = "px-4 py-2 rounded-md text-sm font-semibold";
 	const styles =
 		variant === "solid"
@@ -17,3 +17,4 @@ export const Button = ({ label, onClick, variant = "solid" }: ButtonProps) => {
 		</button>
 	);
 };
+export default Button;

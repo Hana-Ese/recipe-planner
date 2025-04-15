@@ -1,6 +1,6 @@
 import "./App.css";
 import Footer from "./components/layout/Footer";
-import { Navbar } from "./components/layout/Navbar";
+import Navbar from "./components/layout/Navbar";
 import AllRouts from "./router/routes";
 import { BrowserRouter } from "react-router";
 
@@ -9,7 +9,7 @@ function App() {
 		<BrowserRouter>
 			<Navbar />
 			<AllRouts />
-			<Footer/>
+			<Footer />
 		</BrowserRouter>
 	);
 }

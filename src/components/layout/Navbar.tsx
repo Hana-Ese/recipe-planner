@@ -1,8 +1,8 @@
 import { useState } from "react";
-import { Logo } from "../ui/Logo";
-import { NavLinkItem } from "../ui/NavLinkItem";
-import { MobileMenu } from "./MobileMenu";
-import { Button } from "../ui/Button";
+import Logo from "../ui/Logo";
+import NavLinkItem from "../ui/NavLinkItem";
+import MobileMenu from "./MobileMenu";
+import Button from "../ui/Button";
 
 const navLinks = [
 	{ name: "Recipes", href: "/recipes" },
@@ -10,7 +10,7 @@ const navLinks = [
 	{ name: "About Us", href: "/about-us" },
 ];
 
-export const Navbar = () => {
+const Navbar = () => {
 	const [menuOpen, setMenuOpen] = useState(false);
 
 	const handleLogin = () => {
@@ -21,33 +21,33 @@ export const Navbar = () => {
 		console.log("Download App"); // for Download logic
 	};
 
-    return (
-        
+	return (
 		<nav className='navb flex items-center justify-between p-4 bg-white shadow-md sticky top-0 z-50'>
-            <Logo />
-            
+			<Logo />
+
 			<div className='hidden md:flex space-x-6'>
 				{navLinks.map((link) => (
 					<NavLinkItem key={link.name} href={link.href} label={link.name} />
 				))}
-            </div>
-            
+			</div>
+
 			<div className='hidden md:flex items-center space-x-4'>
 				<Button variant='outline' label='Login' onClick={handleLogin} />
 				<Button variant='solid' label='Download' onClick={handleDownload} />
-            </div>
-            
+			</div>
+
 			<div className='md:hidden'>
 				<Button
 					label='☰'
 					variant='outline'
 					onClick={() => setMenuOpen(!menuOpen)}
 				/>
-            </div>
-            
+			</div>
+
 			{menuOpen && (
 				<MobileMenu links={navLinks} closeMenu={() => setMenuOpen(false)} />
 			)}
 		</nav>
 	);
 };
+export default Navbar;

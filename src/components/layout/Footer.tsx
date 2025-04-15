@@ -1,7 +1,7 @@
 import { FaFacebookF, FaTwitter, FaInstagram } from "react-icons/fa";
 import { Link } from "react-router";
 
-export default function Footer() {
+const Footer = () => {
 	return (
 		<footer className='bg-gray-800 text-white py-10 px-6 mt-10'>
 			<div className='max-w-7xl mx-auto'>
@@ -81,4 +81,5 @@ export default function Footer() {
 			</div>
 		</footer>
 	);
-}
+};
+export default Footer;

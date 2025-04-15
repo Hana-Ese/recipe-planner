@@ -1,12 +1,12 @@
-import { NavLinkItem } from "../ui/NavLinkItem";
-import { Button } from "../ui/Button";
+import NavLinkItem from "../ui/NavLinkItem";
+import Button from "../ui/Button";
 
 type MobileMenuProps = {
 	links: { name: string; href: string }[];
 	closeMenu: () => void;
 };
 
-export const MobileMenu = ({ links, closeMenu }: MobileMenuProps) => (
+const MobileMenu = ({ links, closeMenu }: MobileMenuProps) => (
 	<div className='absolute top-16 left-0 w-full bg-white shadow-md flex flex-col space-y-4 p-4 md:hidden'>
 		{links.map((link) => (
 			<NavLinkItem
@@ -28,3 +28,4 @@ export const MobileMenu = ({ links, closeMenu }: MobileMenuProps) => (
 		/>
 	</div>
 );
+export default MobileMenu;

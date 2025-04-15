@@ -1,7 +1,7 @@
 // src/components/planner/RecipeCard.tsx
 
 import { Recipe } from "../../types/recipe";
-import { Button } from "../ui/Button";
+import  Button  from "../ui/Button";
 
 type Props = {
 	recipe: Recipe;

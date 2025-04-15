@@ -6,7 +6,7 @@ type NavLinkItemProps = {
 	onClick?: () => void;
 };
 
-export const NavLinkItem = ({ href, label, onClick }: NavLinkItemProps) => (
+const NavLinkItem = ({ href, label, onClick }: NavLinkItemProps) => (
 	<Link
 		to={href}
 		onClick={onClick}
@@ -15,3 +15,4 @@ export const NavLinkItem = ({ href, label, onClick }: NavLinkItemProps) => (
 		{label}
 	</Link>
 );
+export default NavLinkItem;
