@@ -23,7 +23,7 @@ export const Navbar = () => {
 
     return (
         
-		<nav className='w-full flex items-center justify-between p-4 bg-white shadow-md sticky top-0 z-50'>
+		<nav className='navb flex items-center justify-between p-4 bg-white shadow-md sticky top-0 z-50'>
             <Logo />
             
 			<div className='hidden md:flex space-x-6'>
