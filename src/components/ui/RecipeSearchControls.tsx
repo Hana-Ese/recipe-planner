@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import Button from "./Button";
+import { IoIosArrowDown } from "react-icons/io";
 
 interface RecipeSearchControlsProps {
     search: string;
@@ -20,41 +21,42 @@ const RecipeSearchControls = ({ search, onSearchChange }: RecipeSearchControlsPr
         }
     };
 
-	return (
-		<div className='flex flex-col gap-4 mb-32 mt-32 w-7xl ml-72 '>
-			{/* Search Input */}
-            <div className="mr-72 flex gap-6 items-center">
+    return (
+        <div className='flex flex-col gap-4 mb-32 mt-32 w-full px-4 md:w-7xl md:ml-72'>
+            {/* Search Input */}
+            <div className="flex flex-col md:flex-row gap-6 items-center">
                 <input
-				type='text'
-				placeholder='Search recipes...'
-				className=' border px-4 py-2 rounded-lg w-2/5'
-				value={search}
-				onChange={(e) => onSearchChange(e.target.value)}
-              />
+                    type='text'
+                    placeholder='Search recipes...'
+                    className='border px-4 py-2 rounded-lg w-full md:w-2/5'
+                    value={search}
+                    onChange={(e) => onSearchChange(e.target.value)}
+                />
                 <Button label='Upload Recipe' variant='solid' onClick={() => { }} />
-                
-               </div>
+            </div>
 
-			{/* Filters and Upload Button */}
-			<div className='flex justify-between items-center mt-8'>
-				<div className='flex flex-row gap-3'>
-					<select className='border px-4 py-2 rounded-lg'>
-						<option value=''>Diet Filter</option>
-						<option value='vegan'>Vegan</option>
-						<option value='vegetarian'>Vegetarian</option>
-						<option value='gluten-free'>Gluten-Free</option>
-					</select>
-					 {/* Ingredient Filter */}
-                     <div className='relative'>
+            {/* Filters */}
+            <div className='flex flex-col md:flex-row justify-between items-center mt-8 gap-4'>
+                <div className='flex flex-col md:flex-row gap-3'>
+                    {/* Diet Filter */}
+                    <select className='border px-4 py-2 rounded-lg w-full md:w-auto'>
+                        <option value=''>Diet Filter</option>
+                        <option value='vegan'>Vegan</option>
+                        <option value='vegetarian'>Vegetarian</option>
+                        <option value='gluten-free'>Gluten-Free</option>
+                    </select>
+
+                    {/* Ingredient Filter */}
+                    <div className='relative'>
                         <button
-                            className='border px-4 py-2 rounded-lg w-full md:w-auto'
+                            className='border px-4 py-2 rounded-lg w-full md:w-auto flex gap-2'
                             onClick={() => setShowIngredientDropdown(!showIngredientDropdown)}
                         >
-                            Ingredient Filter
+                            Ingredient Filter <IoIosArrowDown />
                         </button>
                         {showIngredientDropdown && (
-                            <div className='absolute bg-white border shadow-lg w-38 p-4'>
-                                <label className='flex gap-2 ml-4'>
+                            <div className='absolute bg-white border rounded-lg shadow-lg mt-2 p-4 z-10 w-full md:w-48'>
+                                <label className='block'>
                                     <input
                                         type='checkbox'
                                         value='tomato'
@@ -63,7 +65,7 @@ const RecipeSearchControls = ({ search, onSearchChange }: RecipeSearchControlsPr
                                     />
                                     Tomato
                                 </label>
-                                <label className='flex gap-2 ml-4'>
+                                <label className='block'>
                                     <input
                                         type='checkbox'
                                         value='chicken'
@@ -72,7 +74,7 @@ const RecipeSearchControls = ({ search, onSearchChange }: RecipeSearchControlsPr
                                     />
                                     Chicken
                                 </label>
-                                <label className='flex gap-2 ml-4'>
+                                <label className='block'>
                                     <input
                                         type='checkbox'
                                         value='beef'
@@ -84,17 +86,18 @@ const RecipeSearchControls = ({ search, onSearchChange }: RecipeSearchControlsPr
                             </div>
                         )}
                     </div>
+
                     {/* Meal-Times Filter */}
                     <div className='relative'>
                         <button
-                            className='border px-4 py-2 rounded-lg w-full md:w-auto'
+                            className='border px-4 py-2 rounded-lg w-full md:w-auto flex gap-2'
                             onClick={() => setShowMealTimesDropdown(!showMealTimesDropdown)}
                         >
-                            Meal-Times Filter
+                            Meal-Times Filter <IoIosArrowDown />
                         </button>
                         {showMealTimesDropdown && (
-                            <div className='absolute bg-white border shadow-lg  p-4 w-39'>
-                                <label className='flex gap-2 ml-4'>
+                            <div className='absolute bg-white border rounded-lg shadow-lg mt-2 p-4 z-10 w-full md:w-48'>
+                                <label className='block'>
                                     <input
                                         type='checkbox'
                                         value='breakfast'
@@ -103,7 +106,7 @@ const RecipeSearchControls = ({ search, onSearchChange }: RecipeSearchControlsPr
                                     />
                                     Breakfast
                                 </label>
-                                <label className='flex gap-2 ml-4'>
+                                <label className='block'>
                                     <input
                                         type='checkbox'
                                         value='lunch'
@@ -112,7 +115,7 @@ const RecipeSearchControls = ({ search, onSearchChange }: RecipeSearchControlsPr
                                     />
                                     Lunch
                                 </label>
-                                <label className='flex gap-2 ml-4'>
+                                <label className='block'>
                                     <input
                                         type='checkbox'
                                         value='dinner'
@@ -121,8 +124,8 @@ const RecipeSearchControls = ({ search, onSearchChange }: RecipeSearchControlsPr
                                     />
                                     Dinner
                                 </label>
-                                <label className='flex gap-2 ml-4'>
-                                <input
+                                <label className='block'>
+                                    <input
                                         type='checkbox'
                                         value='snacks'
                                         checked={mealTimesFilter.includes('snacks')}
@@ -133,10 +136,10 @@ const RecipeSearchControls = ({ search, onSearchChange }: RecipeSearchControlsPr
                             </div>
                         )}
                     </div>
-				</div>
-			</div>
-		</div>
-	);
+                </div>
+            </div>
+        </div>
+    );
 };
 
 export default RecipeSearchControls;
