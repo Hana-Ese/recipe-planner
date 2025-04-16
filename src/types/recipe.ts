@@ -9,7 +9,7 @@ export type Recipe = {
 };
 
 export interface RecipeContextType {
-  recipes: any[];
+  recipes: Recipe[];
   loading: boolean;
   error: string | null;
 }
