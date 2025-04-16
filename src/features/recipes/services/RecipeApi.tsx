@@ -3,7 +3,7 @@ import { Recipe, RecipeContextType } from "../../../types/recipe";
 
 const apiRecipe = import.meta.env.VITE_Recipe_api_key;
 
-const urlBase = `https://api.spoonacular.com/recipes/random?apiKey=${apiRecipe}&number=10`;
+const urlBase = `https://api.spoonacular.com/recipes/random?apiKey=${apiRecipe}&number=12`;
 
 
 export const recipeListProvider = createContext<RecipeContextType>({
