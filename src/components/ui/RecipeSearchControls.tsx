@@ -81,7 +81,7 @@ const RecipeSearchControls = ({ search, onSearchChange }: RecipeSearchControlsPr
                             Ingredient Filter <IoIosArrowDown />
                         </button>
                         {showIngredientDropdown && (
-                            <div className='absolute bg-white border rounded-lg shadow-lg mt-2 p-4 z-10 w-full md:w-48'>
+                            <div className='absolute bg-white border rounded-lg shadow-lg  p-4 z-10 w-full md:w-48'>
                                 <label className='flex items-center gap-2'>
                                     <input
                                         type='checkbox'
@@ -122,7 +122,7 @@ const RecipeSearchControls = ({ search, onSearchChange }: RecipeSearchControlsPr
                             Meal-Times Filter <IoIosArrowDown />
                         </button>
                         {showMealTimesDropdown && (
-                            <div className='absolute bg-white border rounded-lg shadow-lg mt-2 p-4 z-10 w-full md:w-48'>
+                            <div className='absolute bg-white border rounded-lg shadow-lg p-4 z-10 w-full md:w-48'>
                                 <label className='flex items-center gap-2'>
                                     <input
                                         type='checkbox'
