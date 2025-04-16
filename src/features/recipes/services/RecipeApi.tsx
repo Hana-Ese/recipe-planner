@@ -28,7 +28,8 @@ function RecipeApi({ children }: { children: React.ReactNode }) {
         console.log("API Response:", data);
         setRecipes(data.recipes || []);
         setLoading(false);
-      } catch (error) {
+      } catch  {
+        
         setError("Failed to fetch recipes");
       } finally {
         setLoading(false);
