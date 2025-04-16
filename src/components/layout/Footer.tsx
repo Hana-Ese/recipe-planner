@@ -3,8 +3,8 @@ import { Link } from "react-router";
 
 const Footer = () => {
 	return (
-		<footer className='bg-gray-800 text-white py-10 px-6 mt-10'>
-			<div className='max-w-7xl mx-auto'>
+		<footer className='bg-gray-800 text-white py-10 px-6 mt-10 '>
+			<div className='max-w-7xl mx-auto '>
 				{/* Logo */}
 				<div className='text-3xl font-bold mb-4 mt-6 flex'>SmartPlates</div>
 

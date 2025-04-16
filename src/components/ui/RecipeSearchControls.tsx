@@ -8,15 +8,19 @@ interface RecipeSearchControlsProps {
 
 const RecipeSearchControls = ({ search, onSearchChange }: RecipeSearchControlsProps) => {
 	return (
-		<div className='flex flex-col gap-4 mb-32 mt-24'>
+		<div className='flex flex-col gap-4 mb-32 mt-32 w-7xl ml-72 '>
 			{/* Search Input */}
-			<input
+            <div className="mr-72 flex gap-6 items-center">
+                <input
 				type='text'
 				placeholder='Search recipes...'
-				className='w-full border px-4 py-2 rounded-lg'
+				className=' border px-4 py-2 rounded-lg w-2/5'
 				value={search}
 				onChange={(e) => onSearchChange(e.target.value)}
-			/>
+              />
+                <Button label='Upload Recipe' variant='solid' onClick={() => { }} />
+                
+               </div>
 
 			{/* Filters and Upload Button */}
 			<div className='flex justify-between items-center mt-8'>
@@ -32,10 +36,15 @@ const RecipeSearchControls = ({ search, onSearchChange }: RecipeSearchControlsPr
 						<option value='tomato'>Tomato</option>
 						<option value='chicken'>Chicken</option>
 						<option value='beef'>Beef</option>
+                    </select>
+                    <select className='border px-4 py-2 rounded-lg'>
+						<option value=''>Meal-Times Filter</option>
+						<option value='tomato'>Breakfast</option>
+						<option value='chicken'>Lunch</option>
+                        <option value='beef'>Dinner</option>
+                        <option value='beef'>Sancks</option>
 					</select>
 				</div>
-
-				<Button label='Upload Recipe' variant='solid' onClick={() => {}} />
 			</div>
 		</div>
 	);

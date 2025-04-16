@@ -22,7 +22,7 @@ const Navbar = () => {
 	};
 
 	return (
-		<nav className='navb flex items-center justify-between p-4 bg-white shadow-md sticky top-0 z-50'>
+		<nav className='flex items-center justify-between p-4 bg-white shadow-md sticky top-10 z-50 w-7xl ml-72'>
 			<Logo />
 
 			<div className='hidden md:flex space-x-6'>
