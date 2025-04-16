@@ -1,6 +1,6 @@
 // src/components/planner/RecipeCard.tsx
 
-import { Button } from "../ui/Button";
+import  Button  from "../ui/Button";
 import { Recipe } from "../../types/recipe";
 
 const RecipeCard = ({ recipe }: { recipe: Recipe }) => {
