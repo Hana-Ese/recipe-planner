@@ -1,6 +1,6 @@
 import { Route, Routes } from "react-router";
 import Home from "../pages/Home";
-import AboutUs from "../pages/AbouUs";
+import AboutUs from "../pages/AboutUs";
 import Recipes from "../pages/Recipes";
 import CookWare from "../pages/Cookware";
 import ContactPage from "../pages/Contact";
