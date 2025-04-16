@@ -5,49 +5,55 @@ import MobileMenu from "./MobileMenu";
 import Button from "../ui/Button";
 
 const navLinks = [
-	{ name: "Recipes", href: "/recipes" },
-	{ name: "Cookware", href: "/cookware" },
-	{ name: "About Us", href: "/about-us" },
+    { name: "Recipes", href: "/recipes" },
+    { name: "Cookware", href: "/cookware" },
+    { name: "About Us", href: "/about-us" },
 ];
 
 const Navbar = () => {
-	const [menuOpen, setMenuOpen] = useState(false);
+    const [menuOpen, setMenuOpen] = useState(false);
 
-	const handleLogin = () => {
-		console.log("Open Login Modal"); // for Login logic
-	};
+    const handleLogin = () => {
+        console.log("Open Login Modal"); // for Login logic
+    };
 
-	const handleDownload = () => {
-		console.log("Download App"); // for Download logic
-	};
+    const handleDownload = () => {
+        console.log("Download App"); // for Download logic
+    };
 
-	return (
-		<nav className='flex items-center justify-between p-4 bg-white shadow-md sticky top-10 z-50 w-7xl ml-72'>
-			<Logo />
+    return (
+        <nav className='flex items-center justify-between p-4 mt-8 bg-white shadow-md sticky z-50 w-full max-w-7xl mx-auto'>
+            {/* Logo */}
+            <Logo />
 
-			<div className='hidden md:flex space-x-6'>
-				{navLinks.map((link) => (
-					<NavLinkItem key={link.name} href={link.href} label={link.name} />
-				))}
-			</div>
+            {/* Desktop Navigation */}
+            <div className='hidden md:flex space-x-6'>
+                {navLinks.map((link) => (
+                    <NavLinkItem key={link.name} href={link.href} label={link.name} />
+                ))}
+            </div>
 
-			<div className='hidden md:flex items-center space-x-4'>
-				<Button variant='outline' label='Login' onClick={handleLogin} />
-				<Button variant='solid' label='Download' onClick={handleDownload} />
-			</div>
+            {/* Desktop Buttons */}
+            <div className='hidden md:flex items-center space-x-4'>
+                <Button variant='outline' label='Login' onClick={handleLogin} />
+                <Button variant='solid' label='Download' onClick={handleDownload} />
+            </div>
 
-			<div className='md:hidden'>
-				<Button
-					label='☰'
-					variant='outline'
-					onClick={() => setMenuOpen(!menuOpen)}
-				/>
-			</div>
+            {/* Mobile Menu Button */}
+            <div className='md:hidden'>
+                <Button
+                    label='☰'
+                    variant='outline'
+                    onClick={() => setMenuOpen(!menuOpen)}
+                />
+            </div>
 
-			{menuOpen && (
-				<MobileMenu links={navLinks} closeMenu={() => setMenuOpen(false)} />
-			)}
-		</nav>
-	);
+            {/* Mobile Menu */}
+            {menuOpen && (
+                <MobileMenu links={navLinks} closeMenu={() => setMenuOpen(false)} />
+            )}
+        </nav>
+    );
 };
+
 export default Navbar;
