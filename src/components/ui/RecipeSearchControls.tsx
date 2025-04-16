@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import Button from "./Button";
 import { IoIosArrowDown } from "react-icons/io";
 
@@ -13,6 +13,9 @@ const RecipeSearchControls = ({ search, onSearchChange }: RecipeSearchControlsPr
     const [showIngredientDropdown, setShowIngredientDropdown] = useState(false);
     const [showMealTimesDropdown, setShowMealTimesDropdown] = useState(false);
 
+    const ingredientDropdownRef = useRef<HTMLDivElement>(null);
+    const mealTimesDropdownRef = useRef<HTMLDivElement>(null);
+
     const handleCheckboxChange = (filter: string[], setFilter: React.Dispatch<React.SetStateAction<string[]>>, value: string) => {
         if (filter.includes(value)) {
             setFilter(filter.filter((item) => item !== value));
@@ -20,6 +23,29 @@ const RecipeSearchControls = ({ search, onSearchChange }: RecipeSearchControlsPr
             setFilter([...filter, value]);
         }
     };
+
+    // Close dropdowns when clicking outside
+    useEffect(() => {
+        const handleClickOutside = (event: MouseEvent) => {
+            if (
+                ingredientDropdownRef.current &&
+                !ingredientDropdownRef.current.contains(event.target as Node)
+            ) {
+                setShowIngredientDropdown(false);
+            }
+            if (
+                mealTimesDropdownRef.current &&
+                !mealTimesDropdownRef.current.contains(event.target as Node)
+            ) {
+                setShowMealTimesDropdown(false);
+            }
+        };
+
+        document.addEventListener("mousedown", handleClickOutside);
+        return () => {
+            document.removeEventListener("mousedown", handleClickOutside);
+        };
+    }, []);
 
     return (
         <div className='flex flex-col gap-4 mb-32 mt-32 w-full px-4 md:w-7xl md:ml-72'>
@@ -47,7 +73,7 @@ const RecipeSearchControls = ({ search, onSearchChange }: RecipeSearchControlsPr
                     </select>
 
                     {/* Ingredient Filter */}
-                    <div className='relative'>
+                    <div className='relative' ref={ingredientDropdownRef}>
                         <button
                             className='border px-4 py-2 rounded-lg w-full md:w-auto flex gap-2'
                             onClick={() => setShowIngredientDropdown(!showIngredientDropdown)}
@@ -56,7 +82,7 @@ const RecipeSearchControls = ({ search, onSearchChange }: RecipeSearchControlsPr
                         </button>
                         {showIngredientDropdown && (
                             <div className='absolute bg-white border rounded-lg shadow-lg mt-2 p-4 z-10 w-full md:w-48'>
-                                <label className='block'>
+                                <label className='flex items-center gap-2'>
                                     <input
                                         type='checkbox'
                                         value='tomato'
@@ -65,7 +91,7 @@ const RecipeSearchControls = ({ search, onSearchChange }: RecipeSearchControlsPr
                                     />
                                     Tomato
                                 </label>
-                                <label className='block'>
+                                <label className='flex items-center gap-2'>
                                     <input
                                         type='checkbox'
                                         value='chicken'
@@ -74,7 +100,7 @@ const RecipeSearchControls = ({ search, onSearchChange }: RecipeSearchControlsPr
                                     />
                                     Chicken
                                 </label>
-                                <label className='block'>
+                                <label className='flex items-center gap-2'>
                                     <input
                                         type='checkbox'
                                         value='beef'
@@ -88,7 +114,7 @@ const RecipeSearchControls = ({ search, onSearchChange }: RecipeSearchControlsPr
                     </div>
 
                     {/* Meal-Times Filter */}
-                    <div className='relative'>
+                    <div className='relative' ref={mealTimesDropdownRef}>
                         <button
                             className='border px-4 py-2 rounded-lg w-full md:w-auto flex gap-2'
                             onClick={() => setShowMealTimesDropdown(!showMealTimesDropdown)}
@@ -97,7 +123,7 @@ const RecipeSearchControls = ({ search, onSearchChange }: RecipeSearchControlsPr
                         </button>
                         {showMealTimesDropdown && (
                             <div className='absolute bg-white border rounded-lg shadow-lg mt-2 p-4 z-10 w-full md:w-48'>
-                                <label className='block'>
+                                <label className='flex items-center gap-2'>
                                     <input
                                         type='checkbox'
                                         value='breakfast'
@@ -106,7 +132,7 @@ const RecipeSearchControls = ({ search, onSearchChange }: RecipeSearchControlsPr
                                     />
                                     Breakfast
                                 </label>
-                                <label className='block'>
+                                <label className='flex items-center gap-2'>
                                     <input
                                         type='checkbox'
                                         value='lunch'
@@ -115,7 +141,7 @@ const RecipeSearchControls = ({ search, onSearchChange }: RecipeSearchControlsPr
                                     />
                                     Lunch
                                 </label>
-                                <label className='block'>
+                                <label className='flex items-center gap-2'>
                                     <input
                                         type='checkbox'
                                         value='dinner'
@@ -124,7 +150,7 @@ const RecipeSearchControls = ({ search, onSearchChange }: RecipeSearchControlsPr
                                     />
                                     Dinner
                                 </label>
-                                <label className='block'>
+                                <label className='flex items-center gap-2'>
                                     <input
                                         type='checkbox'
                                         value='snacks'
