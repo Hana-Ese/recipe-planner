@@ -1,28 +1,16 @@
-import RecipeCard from "../../components/ui/RecipeCard";
-import RecipeSearchControls from "../../components/ui/RecipeSearchControls";
-import { useRecipeListProvider } from "../../hooks/UseRecipeList";
+import { useRecipeDietProvider } from "../../hooks/RecipeDietContext";
+import RecipeDietFilter from "../../components/ui/RecipeDietFilter";
+import RecipesPageContent from "./RecipesPageContent";
 
 const RecipesPage = () => {
-
-  const { recipes, loading, error } = useRecipeListProvider();
+  const { diet } = useRecipeDietProvider();
 
   return (
     <div>
-      <RecipeSearchControls 
-        search="" 
-        onSearchChange={(value) => console.log("Search value changed:", value)} 
-      />
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
-        {recipes.map((recipe) => (
-          <RecipeCard key={recipe.id} recipe={recipe} />
-        ))}
-        {error && <p className="text-red-500">{error}</p>}
-        {loading && <p className="text-blue-500">Loading recipes...</p>}
-        {!loading && recipes.length === 0 && <p className="text-red-500">No recipes found.</p>}
-      </div>
+      <RecipeDietFilter />
+      {diet && <RecipesPageContent />}
     </div>
   );
 };
 
 export default RecipesPage;
-
