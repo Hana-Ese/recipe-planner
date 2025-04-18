@@ -1,7 +1,7 @@
 import { createContext, useState, useEffect } from "react";
 import { RecipePlannerContext } from "../../../types/recipe";
 
-const apiRecipeUrl = import.meta.env.VITE_Recipe_api_key2;
+const apiRecipeUrl = import.meta.env.VITE_Recipe_api_key3;
 
 export const recipePlanerProvider = createContext<RecipePlannerContext>({
   duration: 1,
@@ -11,6 +11,7 @@ export const recipePlanerProvider = createContext<RecipePlannerContext>({
   recipesByMeal: {},
   loading: true,
   error: null,
+  ingredientsList: [],
 });
 type RecipesByMeal = Record<string, any[]>;
 
@@ -19,6 +20,7 @@ function RecipePlannerApi({ children }: { children: React.ReactNode }) {
   const [mealTypes, setMealTypes] = useState<string[]>([]);
   const [error, setError] = useState<string | null>(null);
   const [loading, setLoading] = useState(true);
+  const [ingredientsList, setIngredientsList] = useState<any[]>([]);
 
   const [recipesByMeal, setRecipesByMeal] = useState<RecipesByMeal>({});
 
@@ -31,12 +33,12 @@ function RecipePlannerApi({ children }: { children: React.ReactNode }) {
   const handleDurationChange = (value: number) => {
     setDuration(value);
   };
-
+  const allIngredients: any[] = [];
+  const allRecipes: RecipesByMeal = {};
   useEffect(() => {
     const fetchRecipesPlaner = async () => {
       setLoading(true);
       setError(null);
-      const allRecipes: RecipesByMeal = {};
 
       try {
         for (const meal of mealTypes) {
@@ -47,12 +49,19 @@ function RecipePlannerApi({ children }: { children: React.ReactNode }) {
 
           if (data.recipes) {
             allRecipes[meal] = data.recipes;
+            data.recipes.forEach((recipe: any) => {
+              if (recipe.extendedIngredients) {
+                allIngredients.push(...recipe.extendedIngredients);
+              }
+            });
           } else {
             allRecipes[meal] = [];
           }
         }
 
         setRecipesByMeal(allRecipes);
+        setIngredientsList(allIngredients);
+
       } catch (err) {
         console.error("Fehler beim Laden:", err);
         setError("Failed to get recipes");
@@ -79,6 +88,7 @@ function RecipePlannerApi({ children }: { children: React.ReactNode }) {
         recipesByMeal,
         loading,
         error,
+        ingredientsList,
       }}
     >
       {children}
