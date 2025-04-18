@@ -1,7 +1,7 @@
 import { IoIosArrowDown } from "react-icons/io";
 import { UseRecipePlanerProvider } from "../../hooks/UseRecipePlaner";
 import { useState } from "react";
-import GenerateRecipePlan from "../../features/recipes/RecipePlanedList";
+import GenerateRecipePlan from "../../features/recipes/GenerateRecipePlan";
 
 const RecipePlanner = () => {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
