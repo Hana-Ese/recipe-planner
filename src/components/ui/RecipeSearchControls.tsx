@@ -16,12 +16,8 @@ const RecipeSearchControls = ({
   const [mealTimesFilter, setMealTimesFilter] = useState<string[]>([]);
   const [showIngredientDropdown, setShowIngredientDropdown] = useState(false);
   const [showMealTimesDropdown, setShowMealTimesDropdown] = useState(false);
-  const [diet, setDiet] = useState("");
+ 
 
-  const handleDietChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
-    const selectedDiet = e.target.value;
-    setDiet(selectedDiet);
-  };
 
   const ingredientDropdownRef = useRef<HTMLDivElement>(null);
   const mealTimesDropdownRef = useRef<HTMLDivElement>(null);
@@ -78,18 +74,7 @@ const RecipeSearchControls = ({
       {/* Filters */}
       <div className="flex flex-col md:flex-row justify-between items-center mt-8 gap-4">
         <div className="flex flex-col md:flex-row gap-3">
-          {/* Diet Filter */}
-          <select
-            value={diet}
-            onChange={handleDietChange}
-            className="border px-4 py-2 rounded-lg w-full md:w-auto"
-          >
-            <option value="">Diet Filter</option>
-            <option value="vegan">Vegan</option>
-            <option value="vegetarian">Vegetarian</option>
-            <option value="gluten-free">Gluten-Free</option>
-          </select>
-
+       
           {/* Ingredient Filter */}
           <div className="relative" ref={ingredientDropdownRef}>
             <button
