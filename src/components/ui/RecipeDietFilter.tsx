@@ -1,7 +1,8 @@
-import { useRecipeDietProvider } from "../../hooks/RecipeDietContext";
+import { useRecipeListProvider } from "../../hooks/UseRecipeList";
+
 
 const RecipeDietFilter = () => {
-  const { diet, handleDietChange } = useRecipeDietProvider();
+  const { diet, handleDietChange } = useRecipeListProvider();
 
   console.log("Current diet:", diet);
   return (
