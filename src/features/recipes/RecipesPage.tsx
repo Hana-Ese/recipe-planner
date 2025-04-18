@@ -1,14 +1,19 @@
-import { useRecipeDietProvider } from "../../hooks/RecipeDietContext";
+
+import RecipePlanner from "../../components/ui/RecipePlanner";
 import RecipeDietFilter from "../../components/ui/RecipeDietFilter";
+import { useRecipeListProvider } from "../../hooks/UseRecipeList";
 import RecipesPageContent from "./RecipesPageContent";
+import RecipePlannerApi from "./services/RecipePlannerApi";
 
 const RecipesPage = () => {
-  const { diet } = useRecipeDietProvider();
+  const { diet } = useRecipeListProvider();
 
   return (
-    <div>
+    <div className="flex flex-row items-center p-4">
       <RecipeDietFilter />
       {diet && <RecipesPageContent />}
+      <RecipePlannerApi> <RecipePlanner/></RecipePlannerApi >
+     
     </div>
   );
 };
