@@ -11,6 +11,7 @@ function AllRouts() {
       <Route path="/" element={<Home />} />
       <Route path="/about-us" element={<AboutUs />} />
       <Route path="recipes" element={<Recipes />} />
+      <Route path="/recipes/:id" element={<Recipes />} />
       <Route path="/cookware" element={<CookWare />} />
       <Route path="/contact" element={<ContactPage />} />
       <Route path="*" element={<div>404 Not Found</div>} />
