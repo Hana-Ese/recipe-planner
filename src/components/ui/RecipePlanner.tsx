@@ -2,6 +2,7 @@ import { IoIosArrowDown } from "react-icons/io";
 import { UseRecipePlanerProvider } from "../../hooks/UseRecipePlaner";
 import { useState } from "react";
 import GenerateRecipePlan from "../../features/recipes/GenerateRecipePlan";
+import { Link } from "react-router-dom";
 
 const RecipePlanner = () => {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
@@ -20,17 +21,20 @@ const RecipePlanner = () => {
 
   return (
     <div className="max-w-xl mx-auto">
-      <button
+      {/* <Link to={`/recipe/${plan-your-recipe}`}>      <button
         className="border px-4 py-2 rounded-lg w-full md:w-auto flex items-center gap-2"
         onClick={toggleDropdown}
-      >
-        Plan Your Recipes{" "}
+      > */}
+      <button>
+     Plan Your Recipes
+       
         <IoIosArrowDown
           className={`transition-transform duration-300 ${
             isDropdownOpen ? "rotate-180" : ""
           }`}
         />
       </button>
+
 
       {isDropdownOpen && (
         <div className="p-4 mt-4 border rounded-xl shadow-md space-y-4">
