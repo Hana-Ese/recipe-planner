@@ -8,7 +8,7 @@ import { Recipe } from "../../types/recipe";
 const GenerateRecipePlan = () => {
   const [selectedRecipe, setSelectedRecipe] = useState<Recipe | null>(null);
 
-  const { recipesByMeal, ingredientsList} = UseRecipePlanerProvider();
+  const { recipesByMeal, ingredientsList } = UseRecipePlanerProvider();
 
   if (selectedRecipe) {
     return (
@@ -53,7 +53,7 @@ const GenerateRecipePlan = () => {
                 <RecipeCard
                   key={recipe.id}
                   recipe={recipe}
-                  onSelect={() => setSelectedRecipe(recipe)} 
+                  onSelect={() => setSelectedRecipe(recipe)}
                 />
               ))}
             </div>
@@ -76,6 +76,3 @@ const GenerateRecipePlan = () => {
 };
 
 export default GenerateRecipePlan;
-
-  
-

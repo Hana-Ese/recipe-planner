@@ -1,7 +1,7 @@
 import RecipePlanner from "../../components/ui/RecipePlanner";
 import RecipeDietFilter from "../../components/ui/RecipeDietFilter";
 import { useRecipeListProvider } from "../../hooks/UseRecipeList";
-import RecipesPageContent from "./RecipesPageContent";
+import RecipesPageContent from "./RecipesDietContent";
 import RecipePlannerApi from "./services/RecipePlannerApi";
 import RecipeCard from "../../components/ui/RecipeCard";
 import { testDummyRecipes } from "./testDummyRecipes";

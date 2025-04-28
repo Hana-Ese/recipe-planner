@@ -1,7 +1,10 @@
 import { createContext, useState, useEffect } from "react";
 import { RecipePlannerContext } from "../../../types/recipe";
 
-const apiRecipeUrl = import.meta.env.VITE_Recipe_api_key3;
+const apiRecipeUrl = import.meta.env.VITE_Recipe_api_key4;
+apiRecipeUrl
+console.log(':',apiRecipeUrl);
+console.log(':',);
 
 export const recipePlanerProvider = createContext<RecipePlannerContext>({
   duration: 1,

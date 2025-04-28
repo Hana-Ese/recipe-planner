@@ -1,13 +1,19 @@
+import { useParams } from "react-router-dom";
 import RecipeCard from "../../components/ui/RecipeCard";
 import { useRecipeListProvider } from "../../hooks/UseRecipeList";
 
-const RecipesPageContent = () => {
+
+const RecipesDietContent = () => {
     const { recipes, loading, error } = useRecipeListProvider();
+    const { diet } = useParams();
   
+    const filteredRecipes = diet
+    ? recipes.filter((recipe) => recipe.category === diet)
+    : recipes;
     return (
       <>
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
-          {recipes.map((recipe) => (
+          {filteredRecipes.map((recipe) => (
             <RecipeCard key={recipe.id} recipe={recipe} />
           ))}
           {error && <p className="text-red-500">{error}</p>}
@@ -19,4 +25,4 @@ const RecipesPageContent = () => {
       </>
     );
   };
-  export default RecipesPageContent;
+  export default RecipesDietContent;
