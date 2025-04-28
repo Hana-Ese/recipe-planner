@@ -31,7 +31,7 @@ const Navbar = () => {
 				))}
 			</div>
 
-			<div className='hidden md:flex items-center space-x-4'>
+			<div className='hidden md:flex items-center space-x-4 '>
 				<Button variant='outline' label='Login' onClick={handleLogin} />
 				<Button variant='solid' label='Download' onClick={handleDownload} />
 			</div>

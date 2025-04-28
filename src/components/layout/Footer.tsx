@@ -3,7 +3,7 @@ import { Link } from "react-router";
 
 const Footer = () => {
 	return (
-		<footer className='bg-gray-800 text-white py-10 px-6 mt-10'>
+		<footer className='bg-gray-500 text-white py-10 px-6 mt-10'>
 			<div className='max-w-7xl mx-auto'>
 				{/* Logo */}
 				<div className='text-3xl font-bold mb-4 mt-6 flex'>SmartPlates</div>
@@ -45,7 +45,7 @@ const Footer = () => {
 						</div>
 
 						{/* Legal Section */}
-						<div className='text-sm text-gray-400 mt-6 pr-5'>
+						<div className='text-sm text-gray-300 mt-6 pr-5'>
 							<p className='pr-28'>TERMS | PRIVACY | © 2025</p>
 							<p>DO NOT SELL MY PERSONAL INFORMATION</p>
 						</div>

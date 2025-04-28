@@ -33,7 +33,7 @@ function Home() {
 				{/* Link zur About Page */}
 				<div className='mt-6'>
 					<Link
-						to='/about'
+						to='/about-us'
 						className='bg-orange-400 text-white px-6 py-2 rounded-full shadow hover:bg-orange-500 transition'
 					>
 						Learn More
