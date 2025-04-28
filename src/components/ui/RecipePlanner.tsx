@@ -2,7 +2,7 @@ import { IoIosArrowDown } from "react-icons/io";
 import { UseRecipePlanerProvider } from "../../hooks/UseRecipePlaner";
 import { useState } from "react";
 import GenerateRecipePlan from "../../features/recipes/GenerateRecipePlan";
-import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
 
 const RecipePlanner = () => {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
@@ -10,9 +10,9 @@ const RecipePlanner = () => {
   const { duration, mealTypes, toggleMealType, handleDurationChange } =
     UseRecipePlanerProvider();
 
-  const toggleDropdown = () => {
-    setIsDropdownOpen((prev) => !prev);
-  };
+  // const toggleDropdown = () => {
+  //   setIsDropdownOpen((prev) => !prev);
+  // };
   const handlePlanRecipes = () => {
     console.log("Plan Recipes button clicked");
     setShowPlan(true);
