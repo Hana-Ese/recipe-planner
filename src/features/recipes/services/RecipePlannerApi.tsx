@@ -1,8 +1,8 @@
 import { createContext, useState, useEffect } from "react";
-import { RecipePlannerContext } from "../../../types/recipe";
+import { Ingredient, Recipe, RecipePlannerContext } from "../../../types/recipe";
 
 const apiRecipeUrl = import.meta.env.VITE_Recipe_api_key4;
-apiRecipeUrl
+// Removed unused expression
 console.log(':',apiRecipeUrl);
 console.log(':',);
 
