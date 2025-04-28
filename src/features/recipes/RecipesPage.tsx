@@ -11,18 +11,28 @@ const RecipesPage = () => {
   const { diet } = useRecipeListProvider();
 
   return (
-    <div className="flex flex-row items-center p-4">
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
-        {testDummyRecipes.map((recipe) => (
-          <RecipeCard key={recipe.id} recipe={recipe} />
-        ))}
-      </div>
-      <RecipeDietFilter />
-      {diet && <RecipesPageContent />}
-      <RecipePlannerApi>
+    <div className="flex flex-col min-h-screen p-4 bg-gray-50">
      
-        <RecipePlanner />
-      </RecipePlannerApi>
+      <div className="flex flex-col md:flex-row justify-between items-center mb-8 gap-4">
+        <div className="w-full md:w-auto">
+          <RecipeDietFilter />
+        </div>
+        <div className="w-full md:w-auto">
+          <RecipePlannerApi>
+            <RecipePlanner />
+          </RecipePlannerApi>
+        </div>
+      </div>
+
+      
+      <div className="flex-grow">
+        {diet && <RecipesPageContent />}
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+          {testDummyRecipes.map((recipe) => (
+            <RecipeCard key={recipe.id} recipe={recipe} />
+          ))}
+        </div>
+      </div>
     </div>
   );
 };
