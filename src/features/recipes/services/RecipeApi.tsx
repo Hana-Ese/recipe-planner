@@ -2,7 +2,7 @@ import { createContext, useEffect, useState } from "react";
 import { Recipe, RecipeContextType } from "../../../types/recipe";
 
 
-const apiRecipeUrl = import.meta.env.VITE_Recipe_api_key2;
+const apiRecipeUrl = import.meta.env.VITE_Recipe_api_key4;
 
 export const RecipeListProvider = createContext<RecipeContextType>({
   recipes: [],
