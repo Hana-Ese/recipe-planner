@@ -4,7 +4,7 @@ import { Recipe, RecipeContextType } from "../../../types/recipe";
 
 const apiRecipeUrl = import.meta.env.VITE_Recipe_api_key2;
 
-export const recipeListProvider = createContext<RecipeContextType>({
+export const RecipeListProvider = createContext<RecipeContextType>({
   recipes: [],
   loading: true,
   error: null,
@@ -44,11 +44,11 @@ function RecipeApi({ children }: { children: React.ReactNode }) {
   }, [diet]);
 
   return (
-    <recipeListProvider.Provider
+    <RecipeListProvider.Provider
       value={{ recipes, loading, error, handleDietChange, diet }}
     >
       {children}
-    </recipeListProvider.Provider>
+    </RecipeListProvider.Provider>
   );
 }
 

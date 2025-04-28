@@ -1,6 +1,6 @@
 import { useContext } from "react";
-import { recipePlanerProvider } from "../features/recipes/services/RecipePlannerApi";
+import { RecipePlannerProvider } from "../features/recipes/services/RecipePlannerApi";
 
 export function UseRecipePlanerProvider() {
-    return useContext(recipePlanerProvider);
+    return useContext(RecipePlannerProvider);
   }

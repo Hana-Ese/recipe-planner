@@ -1,49 +1,36 @@
-import React, { createContext, useContext, useState } from "react";
-import { RecipeFiltersContext } from '../context/RecipeFiltersContext';
-export const RecipeFiltersContext = createContext<
-	RecipeFiltersContextType | undefined
->(undefined);
+import React, { useContext, useState } from "react";
+import { createContext } from "react";
+import { RecipeFiltersContextType } from "../types/recipe";
 
-export interface RecipeFiltersContextType {
-	ingredientFilter: string[];
-	setIngredientFilter: (value: string[]) => void;
-	mealTimesFilter: string[];
-	setMealTimesFilter: (value: string[]) => void;
-	search: string;
-	setSearch: (value: string) => void;
-	diet: string | null;
-	setDiet: (value: string | null) => void;
-}
+export const RecipeFiltersContext = createContext<RecipeFiltersContextType | null>(null);
 
-export const RecipeFiltersProvider = ({
+export const RecipeFiltersProvider: React.FC<{ children: React.ReactNode }> = ({
 	children,
-}: {
-	children: React.ReactNode;
 }) => {
 	const [ingredientFilter, setIngredientFilter] = useState<string[]>([]);
 	const [mealTimesFilter, setMealTimesFilter] = useState<string[]>([]);
 	const [search, setSearch] = useState("");
 	const [diet, setDiet] = useState<string | null>(null);
 
+	const contextValue: RecipeFiltersContextType = {
+		ingredientFilter,
+		setIngredientFilter,
+		mealTimesFilter,
+		setMealTimesFilter,
+		search,
+		setSearch,
+		diet,
+		setDiet,
+	};
+
 	return (
-		<RecipeFiltersContext.Provider
-			value={{
-				ingredientFilter,
-				setIngredientFilter,
-				mealTimesFilter,
-				setMealTimesFilter,
-				search,
-				setSearch,
-				diet,
-				setDiet,
-			}}
-		>
+		<RecipeFiltersContext.Provider value={contextValue}>
 			{children}
 		</RecipeFiltersContext.Provider>
 	);
 };
 
-export const useRecipeFilters = () => {
+export const useRecipeFilters = (): RecipeFiltersContextType => {
 	const context = useContext(RecipeFiltersContext);
 	if (!context) {
 		throw new Error(

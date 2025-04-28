@@ -1,6 +1,8 @@
 import { useContext } from "react";
-import { recipeListProvider } from "../features/recipes/services/RecipeApi";
+import { RecipeListProvider } from "../features/recipes/services/RecipeApi";
 
 export function useRecipeListProvider() {
-    return useContext(recipeListProvider);
+
+
+    return useContext(RecipeListProvider);
   }

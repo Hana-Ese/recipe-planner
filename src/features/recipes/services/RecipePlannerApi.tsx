@@ -1,9 +1,9 @@
 import { createContext, useState, useEffect } from "react";
 import { RecipePlannerContext } from "../../../types/recipe";
-
+import { Recipe, Ingredient } from "../../../types/recipe"; // 
 const apiRecipeUrl = import.meta.env.VITE_Recipe_api_key3;
 
-export const recipePlanerProvider = createContext<RecipePlannerContext>({
+export const RecipePlannerProvider = createContext<RecipePlannerContext>({
   duration: 1,
   mealTypes: [],
   toggleMealType: () => {},
@@ -13,14 +13,15 @@ export const recipePlanerProvider = createContext<RecipePlannerContext>({
   error: null,
   ingredientsList: [],
 });
-type RecipesByMeal = Record<string, any[]>;
+// Ensure that the Recipe type is properly defined in your types
+type RecipesByMeal = Record<string, Recipe[]>;
 
 function RecipePlannerApi({ children }: { children: React.ReactNode }) {
   const [duration, setDuration] = useState<number>(1);
   const [mealTypes, setMealTypes] = useState<string[]>([]);
   const [error, setError] = useState<string | null>(null);
   const [loading, setLoading] = useState(true);
-  const [ingredientsList, setIngredientsList] = useState<any[]>([]);
+  const [ingredientsList, setIngredientsList] = useState<Ingredient[]>([]);
 
   const [recipesByMeal, setRecipesByMeal] = useState<RecipesByMeal>({});
 
@@ -33,7 +34,7 @@ function RecipePlannerApi({ children }: { children: React.ReactNode }) {
   const handleDurationChange = (value: number) => {
     setDuration(value);
   };
-  const allIngredients: any[] = [];
+  const allIngredients: Ingredient[] = [];
   const allRecipes: RecipesByMeal = {};
   useEffect(() => {
     const fetchRecipesPlaner = async () => {
@@ -49,7 +50,7 @@ function RecipePlannerApi({ children }: { children: React.ReactNode }) {
 
           if (data.recipes) {
             allRecipes[meal] = data.recipes;
-            data.recipes.forEach((recipe: any) => {
+            data.recipes.forEach((recipe: Recipe) => {
               if (recipe.extendedIngredients) {
                 allIngredients.push(...recipe.extendedIngredients);
               }
@@ -63,8 +64,8 @@ function RecipePlannerApi({ children }: { children: React.ReactNode }) {
         setIngredientsList(allIngredients);
 
       } catch (err) {
-        console.error("Fehler beim Laden:", err);
-        setError("Failed to get recipes");
+        console.error("Error fetching recipes:", err);
+        setError(err instanceof Error ? err.message : "Failed to get recipes");
       } finally {
         setLoading(false);
       }
@@ -79,20 +80,20 @@ function RecipePlannerApi({ children }: { children: React.ReactNode }) {
   }, [duration, mealTypes]);
 
   return (
-    <recipePlanerProvider.Provider
-      value={{
-        duration,
-        mealTypes,
-        toggleMealType,
-        handleDurationChange,
-        recipesByMeal,
-        loading,
-        error,
-        ingredientsList,
-      }}
-    >
-      {children}
-    </recipePlanerProvider.Provider>
+    <RecipePlannerProvider.Provider
+    value={{
+      duration,
+      mealTypes,
+      toggleMealType,
+      handleDurationChange,
+      recipesByMeal,
+      loading,
+      error,
+      ingredientsList,
+    }}
+  >
+    {children}
+  </RecipePlannerProvider.Provider>
   );
 }
 
