@@ -1,7 +1,6 @@
 import { createContext, useEffect, useState } from "react";
 import { Recipe, RecipeContextType } from "../../../types/recipe";
 
-
 const apiRecipeUrl = import.meta.env.VITE_Recipe_api_key4;
 
 export const recipeListProvider = createContext<RecipeContextType>({
@@ -14,13 +13,12 @@ export const recipeListProvider = createContext<RecipeContextType>({
 
 function RecipeApi({ children }: { children: React.ReactNode }) {
   const [diet, setDiet] = useState("");
-
-  const handleDietChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
-    setDiet(e.target.value);
-  };
   const [recipes, setRecipes] = useState<Recipe[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
+  const handleDietChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
+    setDiet(e.target.value);
+  };
 
   useEffect(() => {
     console.log("diet:", diet);

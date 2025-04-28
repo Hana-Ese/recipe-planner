@@ -15,7 +15,6 @@ const RecipePlanner = () => {
     setIsDropdownOpen((prev) => !prev);
   };
   const handlePlanRecipes = () => {
-    console.log("Plan Recipes button clicked");
     setShowPlan(true);
     const mealTypesParam = mealTypes.join(",");
     navigate(`/plan/recipes/${duration}/${mealTypesParam}`);

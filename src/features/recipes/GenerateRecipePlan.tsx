@@ -1,14 +1,25 @@
-// dein Context Hook
-
 import { useState } from "react";
 import RecipeCard from "../../components/ui/RecipeCard";
 import { UseRecipePlanerProvider } from "../../hooks/UseRecipePlaner";
 import { Recipe } from "../../types/recipe";
+import { useParams } from "react-router-dom";
 
 const GenerateRecipePlan = () => {
   const [selectedRecipe, setSelectedRecipe] = useState<Recipe | null>(null);
 
   const { recipesByMeal, ingredientsList } = UseRecipePlanerProvider();
+  const { duration, mealTypes } = useParams();
+
+  const filteredRecipes = duration && mealTypes ? recipesByMeal : {};
+
+
+  if (!recipesByMeal || Object.keys(recipesByMeal).length === 0) {
+    return <p>No recipes found for the selected plan.</p>;
+  }
+
+  if (!ingredientsList || ingredientsList.length === 0) {
+    return <p>No ingredients found for the selected plan.</p>;
+  }
 
   if (selectedRecipe) {
     return (
@@ -45,7 +56,7 @@ const GenerateRecipePlan = () => {
   return (
     <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
       <div className="space-y-6">
-        {Object.entries(recipesByMeal).map(([meal, recipes]) => (
+        {Object.entries(filteredRecipes).map(([meal, recipes]) => (
           <div key={meal}>
             <h2 className="text-xl font-semibold mb-2">{meal}</h2>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
@@ -63,6 +74,7 @@ const GenerateRecipePlan = () => {
 
       <div className="bg-white p-4 rounded-xl shadow-md h-fit">
         <h2 className="text-xl font-bold mb-4">🛒 Einkaufsliste</h2>
+
         <ul className="list-disc pl-4 space-y-1 text-sm">
           {ingredientsList.map((ing, index) => (
             <li key={index}>
