@@ -1,6 +1,6 @@
-import image1 from "../../assets/images/anna-pelzer-IGfIGP5ONV0-unsplash.jpg"
-import image2 from "../../assets/images/ella-olsson-2x8j0g1a4eE-unsplash.jpg"
-import image3 from "../../assets/images/ella-olsson-2x8j0g1a4eE-unsplash.jpg"
+import image1 from "../../assets/images/anna-pelzer-IGfIGP5ONV0-unsplash.jpg";
+import image2 from "../../assets/images/chad-montano-gf9777gaYjs-unsplash.jpg";
+import image3 from "../../assets/images/homescreenify-sA3wymVqyaI-unsplash.jpg";
 
 export const testDummyRecipes = [
     {
