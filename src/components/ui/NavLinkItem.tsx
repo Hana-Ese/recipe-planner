@@ -10,7 +10,7 @@ const NavLinkItem = ({ href, label, onClick }: NavLinkItemProps) => (
 	<Link
 		to={href}
 		onClick={onClick}
-		className='text-gray-700 hover:text-blue-600 font-medium transition-colors'
+		className='text-gray-700 hover:text-orange-500 font-medium transition-colors'
 	>
 		{label}
 	</Link>

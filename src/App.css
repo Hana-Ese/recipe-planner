@@ -1,5 +1,12 @@
 @import "tailwindcss";
 
+:root {
+	--color-primary: #f6ebda; /* Background color */
+	--color-secondary: #f97316; /* Orange color */
+	--color-text-primary: #4b5563; /* Gray text */
+	--color-text-secondary: #1f2937; /* Darker gray text */
+	--color-hover-secondary: #ea580c; /* Darker orange for hover */
+  }
 #root {
 	width: 100%;
 	height: 100%;
