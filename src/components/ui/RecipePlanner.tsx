@@ -2,32 +2,32 @@ import { IoIosArrowDown } from "react-icons/io";
 import { UseRecipePlanerProvider } from "../../hooks/UseRecipePlaner";
 import { useState } from "react";
 import GenerateRecipePlan from "../../features/recipes/GenerateRecipePlan";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const RecipePlanner = () => {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const [showPlan, setShowPlan] = useState(false); 
   const { duration, mealTypes, toggleMealType, handleDurationChange } =
     UseRecipePlanerProvider();
+  const navigate = useNavigate();
 
   const toggleDropdown = () => {
     setIsDropdownOpen((prev) => !prev);
   };
   const handlePlanRecipes = () => {
     console.log("Plan Recipes button clicked");
-    setShowPlan(true);
+    // Dynamische Route basierend auf der Auswahl
+    const mealTypesParam = mealTypes.join(","); // Kombiniere die Mahlzeiten in einem String
+    navigate(`/plan/recipes/${duration}/${mealTypesParam}`);
   };
- 
 
   return (
     <div className="max-w-xl mx-auto">
-      {/* <Link to={`/recipe/${plan-your-recipe}`}>      <button
+      <button
         className="border px-4 py-2 rounded-lg w-full md:w-auto flex items-center gap-2"
         onClick={toggleDropdown}
-      > */}
-      <button>
-     Plan Your Recipes
-       
+      >
+        Plan Your Recipes
         <IoIosArrowDown
           className={`transition-transform duration-300 ${
             isDropdownOpen ? "rotate-180" : ""
