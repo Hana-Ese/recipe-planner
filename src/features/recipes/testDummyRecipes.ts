@@ -1,3 +1,7 @@
+import image1 from "../../../assets/images/recipes/spaghetti-bolognese.jpg";
+import image2 from "../../../assets/images/recipes/vegan-salad.jpg";
+import image3 from "../../../assets/images/recipes/strawberry-banana-pancakes.jpg";
+
 export const testDummyRecipes = [
 	{
 		id: "1",
