@@ -1,10 +1,10 @@
 import { createContext, useState, useEffect } from "react";
 import { RecipePlannerContext } from "../../../types/recipe";
+import { useParams } from "react-router-dom";
 
 const apiRecipeUrl = import.meta.env.VITE_Recipe_api_key4;
 apiRecipeUrl
-console.log(':',apiRecipeUrl);
-console.log(':',);
+
 
 export const recipePlanerProvider = createContext<RecipePlannerContext>({
   duration: 1,
@@ -18,9 +18,11 @@ export const recipePlanerProvider = createContext<RecipePlannerContext>({
 });
 type RecipesByMeal = Record<string, any[]>;
 
-function RecipePlannerApi({ children }: { children: React.ReactNode }) {
-  const [duration, setDuration] = useState<number>(1);
-  const [mealTypes, setMealTypes] = useState<string[]>([]);
+function RecipePlannerApi({ children, durationFromUrl, mealTypesFromUrl }: { children: React.ReactNode; durationFromUrl: string; mealTypesFromUrl: string }) {
+
+  const [duration, setDuration] = useState<number>(Number(durationFromUrl) || 1); 
+  console.log('mealTypesFromUrl:', mealTypesFromUrl);
+  const [mealTypes, setMealTypes] = useState<string[]>(mealTypesFromUrl ? mealTypesFromUrl.split(",") : []);
   const [error, setError] = useState<string | null>(null);
   const [loading, setLoading] = useState(true);
   const [ingredientsList, setIngredientsList] = useState<any[]>([]);
