@@ -3,7 +3,6 @@ import { Link } from "react-router";
 import TeamImage1 from "../assets/images/Ese.png";
 import TeamImage2 from "../assets/images/Hana.png";
 
-
 function AboutUs() {
 	return (
 		<div className='min-h-screen bg-[#f6ebda] flex flex-col items-center justify-center p-8 relative overflow-hidden'>
@@ -64,36 +63,42 @@ function AboutUs() {
 				</motion.p>
 
 				<motion.div
-    initial={{ opacity: 0, scale: 0.8 }}
-    animate={{ opacity: 1, scale: 1 }}
-    transition={{ delay: 0.9 }}
-    className='bg-white/70 p-6 rounded-xl shadow-lg'
->
-    <h2 className='text-2xl font-semibold mb-4 text-orange-600'>Meet the Developers</h2>
-    <div className='flex flex-col md:flex-row gap-4'>
-        {/* Card 1 */}
-        <div className='bg-orange-100 p-6 rounded-lg shadow-md flex-1 flex flex-col items-center'>
-            <img
-                src={TeamImage1}
-                alt='Ese Osagie'
-                className='w-24 h-24 rounded-full mb-4'
-            />
-            <h3 className='text-lg font-bold text-gray-800'>Mis Ese Osagie</h3>
-            <p className='text-gray-600'>Full Stack Developer</p>
-        </div>
+					initial={{ opacity: 0, scale: 0.8 }}
+					animate={{ opacity: 1, scale: 1 }}
+					transition={{ delay: 0.9 }}
+					className='bg-white/70 p-6 rounded-xl shadow-lg'
+				>
+					<h2 className='text-2xl font-semibold mb-4 text-orange-600'>
+						Meet the Developers
+					</h2>
+					<div className='flex flex-col md:flex-row gap-4'>
+						{/* Card 1 */}
+						<div className='bg-orange-100 p-6 rounded-lg shadow-md flex-1 flex flex-col items-center'>
+							<img
+								src={TeamImage1}
+								alt='Ese Osagie'
+								className='w-24 h-24 rounded-full mb-4'
+							/>
+							<h3 className='text-lg font-bold text-gray-800'>
+								Mis Ese Osagie
+							</h3>
+							<p className='text-gray-600'>Full Stack Developer</p>
+						</div>
 
-        {/* Card 2 */}
-        <div className='bg-orange-100 p-6 rounded-lg shadow-md flex-1 flex flex-col items-center'>
-            <img
-                src={TeamImage2}
-                alt='Hana Abrham'
-                className='w-24 h-24 rounded-full mb-4'
-            />
-            <h3 className='text-lg font-bold text-gray-800'>Mis Hana Abrham</h3>
-            <p className='text-gray-600'>Full Stack Developer</p>
-        </div>
-    </div>
-</motion.div>
+						{/* Card 2 */}
+						<div className='bg-orange-100 p-6 rounded-lg shadow-md flex-1 flex flex-col items-center'>
+							<img
+								src={TeamImage2}
+								alt='Hana Abrham'
+								className='w-24 h-24 rounded-full mb-4'
+							/>
+							<h3 className='text-lg font-bold text-gray-800'>
+								Mis Hana Abrham
+							</h3>
+							<p className='text-gray-600'>Full Stack Developer</p>
+						</div>
+					</div>
+				</motion.div>
 			</motion.div>
 			{/* Link back */}
 			<div className='mt-8'>

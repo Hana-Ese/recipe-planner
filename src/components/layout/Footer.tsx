@@ -1,5 +1,6 @@
 import { FaFacebookF, FaTwitter, FaInstagram } from "react-icons/fa";
 import { Link } from "react-router";
+import GoogelStoreImg  from "../../assets/images/SmartGooglePlay.png";
 
 const Footer = () => {
 	return (
@@ -72,7 +73,7 @@ const Footer = () => {
 							className='h-10'
 						/>
 						<img
-							src='https://via.placeholder.com/150x50?text=Google+Play'
+							src={GoogelStoreImg}
 							alt='Google Play'
 							className='h-10'
 						/>
